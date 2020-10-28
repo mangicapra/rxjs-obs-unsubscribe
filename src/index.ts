@@ -1,1 +1,1 @@
-export * from './obsUnsubscribe';
+export { ObsUnsubscribe } from './obsUnsubscribe';

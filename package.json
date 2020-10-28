@@ -1,11 +1,11 @@
 {
   "name": "rxjs-obs-unsubscribe",
-  "version": "1.0.0",
+  "version": "1.0.4",
   "description": "Typescript decorator for auto unsubscribe when component is destroyed.",
-  "main": "lib/index.js",
-  "types": "lib",
+  "main": "dist/index.js",
+  "typings": "./dist/index.d.ts",
   "scripts": {
-    "build": "tsc -p ."
+    "build": "rm -rf ./dist && tsc"
   },
   "keywords": [
     "angular",

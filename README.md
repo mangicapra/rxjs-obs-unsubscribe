@@ -8,9 +8,40 @@
 
 ## Usage
 
-First inside your `tsconfig.json` enable:
-`"emitDecoratorMetadata": true`
-`"experimentalDecorators": true`
+First inside your `tsconfig.json` enable: `"emitDecoratorMetadata"` and `"experimentalDecorators"`
+
+```js
+import { ObsUnsubscribe } from 'rxjs-obs-unsubscribe';
+
+@ObsUnsubscribe()
+@Component({
+  selector: 'app-products',
+  templateUrl: './products.component.html',
+  styleUrls: ['./products.component.css']
+})
+export class ProductsComponent implements OnInit, OnDestroy {
+  products$: Subscription; // it supports single Subscription
+  sub$: Subscription[]; // or array of Subscriptions
+
+  constructor( private productService: ProductService ) {}
+
+  ngOnInit() {
+    his.products$ = this.productService.getProducts().subscribe(res => // do something );
+    this.sub$ = [
+        this.productService.obsOne().subscribe(res => ... ),
+        this.productService.obsTwo().subscribe(res => ... ),
+        ...
+    ];
+  }
+
+  // Method(event) that is specified as decorator option must be present
+  // otherwise it will throw error, it can stay empty
+  ngOnDestroy(): void {}
+  
+```
+
+Optionaly pass `event` to decorator so unsubscribe can happen inside it:
+`@ObsUnsubscribe({event: 'componentDidUnmount'})`
 
 ### Options
 
