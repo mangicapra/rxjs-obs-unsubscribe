@@ -1,0 +1,35 @@
+{
+  "name": "rxjs-obs-unsubscribe",
+  "version": "1.0.0",
+  "description": "Typescript decorator for auto unsubscribe when component is destroyed.",
+  "main": "lib/index.js",
+  "types": "lib",
+  "scripts": {
+    "build": "tsc -p ."
+  },
+  "keywords": [
+    "angular",
+    "react",
+    "rxjs",
+    "observables",
+    "unsubscribe",
+    "typescript",
+    "decorators",
+    "javascript"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/mangicapra/obsUnsubscribe.git"
+  },
+  "bugs": {
+    "url": "https://github.com/mangicapra/obsUnsubscribe/issues"
+  },
+  "author": "Dragan Dejanovic",
+  "license": "MIT",
+  "peerDependencies": {
+    "rxjs": "^6.6.3"
+  },
+  "devDependencies": {
+    "typescript": "^4.0.5"
+  }
+}
