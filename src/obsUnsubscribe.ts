@@ -1,6 +1,8 @@
 import { Subscription } from 'rxjs';
 
-const isFunction = (fn: any) => typeof fn === 'function';
+const isFunction = (fn: any): boolean => typeof fn === 'function';
+
+const shouldUnsubscribe = (prop: any): boolean => prop && ('unsubscribe' in prop) && isFunction(prop.unsubscribe);
 
 export function ObsUnsubscribe({
   event = 'ngOnDestroy'
@@ -23,7 +25,7 @@ export function ObsUnsubscribe({
 
           const property = this[prop];
 
-          if (isFunction(property.unsubscribe)) {
+          if (shouldUnsubscribe(property)) {
             property.unsubscribe();
           }
 

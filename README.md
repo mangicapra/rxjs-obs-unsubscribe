@@ -26,7 +26,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
   constructor( private productService: ProductService ) {}
 
   ngOnInit() {
-    his.products$ = this.productService.getProducts().subscribe(res => // do something );
+    his.products$ = this.productService.getProducts().subscribe(res => ... );
     this.sub$ = [
         this.productService.obsOne().subscribe(res => ... ),
         this.productService.obsTwo().subscribe(res => ... ),
@@ -41,7 +41,7 @@ export class ProductsComponent implements OnInit, OnDestroy {
 ```
 
 Optionaly pass `event` to decorator so unsubscribe can happen inside it:
-`@ObsUnsubscribe({event: 'componentDidUnmount'})`
+`@ObsUnsubscribe({event: 'componentWillUnmount'})`
 
 ### Options
 
@@ -49,4 +49,4 @@ Optionaly pass `event` to decorator so unsubscribe can happen inside it:
 | ----------- | ------------------------------------------------------ | ------------- |
 | `event`     | a name of event callback to execute on                 | `ngOnDestroy` |
 
-Note: `event` can be set to any method or lifecycle hook e.g. `componentDidUnmount` for react.
+Note: `event` can be set to any method or lifecycle hook e.g. `componentWillUnmount` for react.
